@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A browser-based Automatic Speech Recognition smart dictation tool." />
+  <title>VoxWrite | Smart Dictation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">◉</span><div><h1>VoxWrite</h1><p>Speech Recognition · Smart Dictation</p></div></div>
+      <span class="privacy-pill">● Browser-based</span>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">AUTOMATIC SPEECH RECOGNITION</p>
+        <h2>Your voice,<br><span>turned into text.</span></h2>
+        <p class="hero-copy">Speak naturally and watch your words appear. Edit, copy, download, or listen to your transcript.</p>
+      </div>
+      <div class="mic-art" aria-hidden="true"><div class="mic-ring">🎙️</div><div class="sound-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+    </section>
+
+    <section class="workspace">
+      <div class="section-heading"><div><p class="eyebrow">01 / SPEECH INPUT</p><h3>Live dictation</h3></div><span id="supportBadge" class="status-badge">Checking browser…</span></div>
+      <div class="controls">
+        <label class="field-label" for="language">Recognition language</label>
+        <select id="language">
+          <option value="en-US">English (United States)</option>
+          <option value="en-IN">English (India)</option>
+          <option value="ta-IN">Tamil (India)</option>
+          <option value="hi-IN">Hindi (India)</option>
+        </select>
+        <button id="startBtn" class="btn primary">● Start speaking</button>
+        <button id="stopBtn" class="btn secondary" disabled>■ Stop</button>
+      </div>
+      <div id="status" class="status-line" role="status">Not listening. Select a language and press Start speaking.</div>
+      <label class="check-row"><input type="checkbox" id="punctuation" checked /> Automatically format spoken punctuation (comma, period, question mark)</label>
+      <p class="hint">Tip: Allow microphone access when your browser asks. For best compatibility, use the latest Google Chrome or Microsoft Edge.</p>
+    </section>
+
+    <section class="workspace transcript-workspace">
+      <div class="section-heading"><div><p class="eyebrow">02 / RECOGNIZED OUTPUT</p><h3>Transcript editor</h3></div><div class="counts"><span id="wordCount">0 words</span><span id="charCount">0 characters</span></div></div>
+      <textarea id="transcript" placeholder="Your recognized speech will appear here. You can also type or edit text in this area." spellcheck="true"></textarea>
+      <div class="action-row">
+        <button id="copyBtn" class="btn secondary">Copy text</button>
+        <button id="downloadBtn" class="btn secondary">Download .txt</button>
+        <button id="clearBtn" class="btn ghost">Clear</button>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <div class="section-heading"><div><p class="eyebrow">03 / OPTIONAL TEXT TO SPEECH</p><h3>Listen to your text</h3></div></div>
+      <div class="tts-row">
+        <button id="speakBtn" class="btn primary">▶ Speak normally</button>
+        <select id="voiceStyle" aria-label="Voice style">
+          <option value="">Choose a voice style</option>
+          <option value="robot">Robot</option><option value="chipmunk">Chipmunk</option>
+          <option value="narrator">Narrator</option><option value="announcer">Announcer</option>
+          <option value="whisper">Whisper</option>
+        </select>
+        <label class="check-row compact"><input type="checkbox" id="keepWords" checked /> Keep my words</label>
+        <button id="styleBtn" class="btn secondary">Speak in style</button>
+        <button id="cancelSpeechBtn" class="btn ghost">Stop audio</button>
+      </div>
+      <p class="hint">Text-to-speech uses voices available in your browser and operating system. Voice styles adjust pitch and speaking rate; availability varies by device.</p>
+    </section>
+
+    <footer><span>VoxWrite · ASR Mini Project</span><span>Audio recognition depends on browser support and network availability.</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
